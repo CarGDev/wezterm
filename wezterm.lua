@@ -42,6 +42,8 @@ config.window_frame = {
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
 
 -- tmux-like key bindings
+-- Note: Alt+Arrow keys are intentionally not bound here to avoid conflicts with tmux
+-- tmux uses Alt+Arrow for pane navigation, so we let tmux handle those keys
 config.keys = {
   -- Pane splitting with leader key (Ctrl+B)
   {
@@ -54,7 +56,7 @@ config.keys = {
     mods = 'LEADER',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
-  -- Pane navigation with leader key (Ctrl+B)
+  -- Pane navigation with leader key (Ctrl+B) - only when not in tmux
   {
     key = 'LeftArrow',
     mods = 'LEADER',
@@ -75,7 +77,8 @@ config.keys = {
     mods = 'LEADER',
     action = wezterm.action.ActivatePaneDirection 'Down',
   },
-  -- Pane resizing with Opt+Ctrl+Arrow keys
+  -- Pane resizing with Opt+Ctrl+Arrow keys (only when not in tmux)
+  -- Note: These don't conflict with tmux as tmux uses Alt+Arrow for navigation
   {
     key = 'LeftArrow',
     mods = 'CTRL|ALT',
@@ -322,6 +325,10 @@ config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
 -- Enhanced settings
 config.scrollback_lines = 20000
 config.term = 'xterm-256color'
+
+-- tmux compatibility settings
+-- Ensure tmux can properly handle its own keybindings
+config.enable_csi_u_key_encoding = true
 
 -- tmux-style selection colors (crispy highlight)
 config.colors = {

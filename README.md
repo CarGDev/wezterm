@@ -172,10 +172,22 @@ For better performance:
 
 This configuration is designed to work seamlessly with tmux:
 - **Leader Key**: Uses same `Ctrl+B` prefix as tmux
-- **Pane Operations**: Identical keybindings to tmux
+- **Pane Operations**: Identical keybindings to tmux when using leader key
+- **Key Conflict Resolution**: Alt+Arrow keys are intentionally not bound in WezTerm to avoid conflicts with tmux's pane navigation
 - **Colors**: Tokyo Night theme preserved in tmux
 - **Mouse Support**: Works seamlessly with tmux mouse mode
 - **Font Ligatures**: Maintained across tmux sessions
+- **Terminal Type**: Configured as `xterm-256color` for maximum compatibility
+
+### Using tmux inside WezTerm
+
+When running tmux inside WezTerm:
+1. **Pane Navigation**: Use `Alt+Arrow` keys (handled by tmux)
+2. **Pane Splitting**: Use `Ctrl+B, |` for horizontal, `Ctrl+B, -` for vertical (handled by tmux)
+3. **Pane Resizing**: Use `Ctrl+Alt+Arrow` keys (handled by tmux)
+4. **Tab Management**: Use `Ctrl+B` followed by tab commands (handled by tmux)
+
+The WezTerm configuration intentionally avoids binding `Alt+Arrow` keys to prevent conflicts with tmux's pane navigation system.
 
 ## Usage Examples
 
@@ -190,9 +202,15 @@ This configuration is designed to work seamlessly with tmux:
 2. **`Ctrl+B, 1-9`** - Quick jump to specific tabs
 3. **`Ctrl+B, n/p`** - Navigate between tabs
 
+### tmux Workflow
+1. **`Alt+Arrow`** - Navigate between tmux panes
+2. **`Ctrl+B, |`** - Split tmux pane horizontally
+3. **`Ctrl+B, -`** - Split tmux pane vertically
+4. **`Ctrl+Alt+Arrow`** - Resize tmux panes
+
 ## Additional Resources
 
 - [WezTerm Documentation](https://wezfurlong.org/wezterm/)
 - [Tokyo Night Theme](https://github.com/folke/tokyonight.nvim)
 - [Nerd Fonts](https://www.nerdfonts.com/)
-- [tmux Documentation](https://github.com/tmux/tmux/wiki) 
+- [tmux Documentation](https://github.com/tmux/tmux/wiki)
