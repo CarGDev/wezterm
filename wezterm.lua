@@ -39,7 +39,7 @@ config.window_frame = {
 }
 
 -- tmux-like leader key configuration
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
 -- tmux-like key bindings
 -- Note: Alt+Arrow keys are intentionally not bound here to avoid conflicts with tmux
