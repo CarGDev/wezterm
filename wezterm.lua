@@ -270,8 +270,8 @@ config.keys = {
     action = wezterm.action.CopyTo("Clipboard"),
   },
   {
-    key = 'r',
-    mods = 'CTRL',
+    key = 'R',
+    mods = 'CTRL|SHIFT',
     action = wezterm.action.ReloadConfiguration,
   },
   -- Quality of life improvements
